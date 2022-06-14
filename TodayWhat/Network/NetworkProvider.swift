@@ -74,7 +74,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
         guard var urlComponents = URLComponents(string: neisBaseURL + "schoolInfo") else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
-            .init(name: "KEY", value: "ae365885027f4c66ab52fbdc6c58d7f0"),
+            .init(name: "KEY", value: ""),
             .init(name: "Type", value: "json"),
             .init(name: "pIndex", value: "1"),
             .init(name: "pSize", value: "3"),
@@ -122,7 +122,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
         guard var urlComponents = URLComponents(string: neisBaseURL + type.toSubURL()) else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
-            .init(name: "KEY", value: "ae365885027f4c66ab52fbdc6c58d7f0"),
+            .init(name: "KEY", value: ""),
             .init(name: "Type", value: "json"),
             .init(name: "pIndex", value: "1"),
             .init(name: "pSize", value: "30"),

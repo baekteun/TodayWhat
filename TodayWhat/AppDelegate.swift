@@ -286,7 +286,7 @@ private extension AppDelegate {
         }
         if timeTable.isEmpty {
             let menuItem = NSMenuItem().then {
-                $0.title = "오늘 시간표을 찾을 수 없어요!"
+                $0.title = "시간표을 찾을 수 없어요!"
                 $0.tag = Consts.mealTag
             }
             menu.insertItem(menuItem, at: .zero)
@@ -316,7 +316,7 @@ private extension AppDelegate {
                 split[1] = prev.joined(separator: "")
             }
             let res = split.joined(separator: "\n")
-            let str = NSMutableAttributedString(string: res)
+            let str = NSMutableAttributedString(string: res + "\n")
             str.setAttributes([
                 .font: NSFont.systemFont(ofSize: 12, weight: .medium),
                 .foregroundColor: NSColor.textColor
@@ -333,7 +333,7 @@ private extension AppDelegate {
         
         if arr.isEmpty {
             let menuItem = NSMenuItem().then {
-                $0.title = "오늘 \(selectedPart.display)을 찾을 수 없어요!"
+                $0.title = "\(selectedPart.display)을 찾을 수 없어요!"
                 $0.tag = Consts.mealTag
             }
             menu.insertItem(menuItem, at: .zero)
@@ -355,8 +355,8 @@ private extension AppDelegate {
             return
         }
         let info = selectedPart == .timeTable
-        ? "🏫 \(school)\n\(UserDefaultsLocal.shared.grade)학년 \(UserDefaultsLocal.shared.class)반의 시간표에요!"
-        : "🏫 \(school)\n오늘 \(selectedPart.display)이에요!"
+        ? "🏫 \(school) \(UserDefaultsLocal.shared.grade)학년 \(UserDefaultsLocal.shared.class)반"
+        : "🏫 \(school) (\(selectedPart.display))"
         let str = NSMutableAttributedString(string: info)
         str.setAttributes([
             .foregroundColor: NSColor.red
