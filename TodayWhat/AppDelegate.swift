@@ -93,6 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if UserDefaultsLocal.shared.school == nil {
             setSchoolMenuAction()
+            return
         }
         
         startRefreshTimer()
@@ -260,7 +261,6 @@ private extension AppDelegate {
                 return Just((Meal(breakfast: [], lunch: [], dinner: []), [TimeTable]())).eraseToAnyPublisher()
             })
             .sink { _ in } receiveValue: { [weak self] (meal, timetable) in
-                print(meal, timetable)
                 self?.meal = meal
                 self?.timeTable = timetable
                 self?.updateUI()

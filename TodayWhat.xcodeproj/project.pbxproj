@@ -10,7 +10,6 @@
 		463440B72851A9B600BE66EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440B62851A9B600BE66EE /* AppDelegate.swift */; };
 		463440BB2851A9B800BE66EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463440BA2851A9B800BE66EE /* Assets.xcassets */; };
 		463440BE2851A9B800BE66EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463440BC2851A9B800BE66EE /* Main.storyboard */; };
-		463440C72851B98C00BE66EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 463440C62851B98C00BE66EE /* Then */; };
 		463440CA2851E58A00BE66EE /* DisplayInfoPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440C92851E58A00BE66EE /* DisplayInfoPart.swift */; };
 		463440CD2851E72B00BE66EE /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440CC2851E72B00BE66EE /* NetworkProvider.swift */; };
 		463440D12851FB8D00BE66EE /* MealResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D02851FB8D00BE66EE /* MealResponseDTO.swift */; };
@@ -19,7 +18,6 @@
 		463440D9285207F600BE66EE /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D8285207F600BE66EE /* Consts.swift */; };
 		463440F52852268600BE66EE /* UserDefaultsLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440F42852268600BE66EE /* UserDefaultsLocal.swift */; };
 		463440F72852274700BE66EE /* SchoolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440F62852274700BE66EE /* SchoolType.swift */; };
-		463440FA2852282E00BE66EE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463440F92852282E00BE66EE /* SwiftUI.framework */; };
 		463440FD28522ADC00BE66EE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440FC28522ADC00BE66EE /* Date+Ext.swift */; };
 		463441002852356E00BE66EE /* NSMutableAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440FF2852356E00BE66EE /* NSMutableAttributedString+Ext.swift */; };
 		4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4634410228524ED400BE66EE /* SwiftyJSON */; };
@@ -31,6 +29,7 @@
 		463441142855CDC100BE66EE /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441132855CDC100BE66EE /* TimeTable.swift */; };
 		463441162855CE7D00BE66EE /* TimeTableResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */; };
 		463441192857643B00BE66EE /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441182857643B00BE66EE /* MealType.swift */; };
+		463441222858562700BE66EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 463441212858562700BE66EE /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,10 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463440FA2852282E00BE66EE /* SwiftUI.framework in Frameworks */,
 				4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */,
+				463441222858562700BE66EE /* Then in Frameworks */,
 				4634410D28557F7700BE66EE /* LaunchAtLogin in Frameworks */,
-				463440C72851B98C00BE66EE /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,9 +240,9 @@
 			);
 			name = TodayWhat;
 			packageProductDependencies = (
-				463440C62851B98C00BE66EE /* Then */,
 				4634410228524ED400BE66EE /* SwiftyJSON */,
 				4634410C28557F7700BE66EE /* LaunchAtLogin */,
+				463441212858562700BE66EE /* Then */,
 			);
 			productName = TodayWhat;
 			productReference = 463440B32851A9B600BE66EE /* TodayWhat.app */;
@@ -275,9 +273,9 @@
 			);
 			mainGroup = 463440AA2851A9B600BE66EE;
 			packageReferences = (
-				463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */,
 				4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 463440B42851A9B600BE66EE /* Products */;
 			projectDirPath = "";
@@ -466,6 +464,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayWhat/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -495,6 +494,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayWhat/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -535,14 +535,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -559,14 +551,17 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		463440C62851B98C00BE66EE /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
 		4634410228524ED400BE66EE /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
@@ -576,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
+		};
+		463441212858562700BE66EE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

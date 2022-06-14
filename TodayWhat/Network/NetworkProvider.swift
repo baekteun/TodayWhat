@@ -32,7 +32,6 @@ public struct NetworkProvider: NetworkProviderProtocol {
         let month = today.month < 10 ? "0\(today.month)" : "\(today.month)"
         let day = today.day < 10 ? "0\(today.day)" : "\(today.day)"
         let date = "\(today.year)\(month)\(day)"
-        print(today, date)
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
             .init(name: "KEY", value: ""),
@@ -75,7 +74,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
         guard var urlComponents = URLComponents(string: neisBaseURL + "schoolInfo") else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
-            .init(name: "KEY", value: ""),
+            .init(name: "KEY", value: "ae365885027f4c66ab52fbdc6c58d7f0"),
             .init(name: "Type", value: "json"),
             .init(name: "pIndex", value: "1"),
             .init(name: "pSize", value: "3"),
@@ -123,7 +122,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
         guard var urlComponents = URLComponents(string: neisBaseURL + type.toSubURL()) else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
-            .init(name: "KEY", value: ""),
+            .init(name: "KEY", value: "ae365885027f4c66ab52fbdc6c58d7f0"),
             .init(name: "Type", value: "json"),
             .init(name: "pIndex", value: "1"),
             .init(name: "pSize", value: "30"),
