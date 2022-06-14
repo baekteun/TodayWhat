@@ -8,18 +8,56 @@
 
 /* Begin PBXBuildFile section */
 		463440B72851A9B600BE66EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440B62851A9B600BE66EE /* AppDelegate.swift */; };
-		463440B92851A9B600BE66EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440B82851A9B600BE66EE /* ViewController.swift */; };
 		463440BB2851A9B800BE66EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 463440BA2851A9B800BE66EE /* Assets.xcassets */; };
 		463440BE2851A9B800BE66EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463440BC2851A9B800BE66EE /* Main.storyboard */; };
+		463440C72851B98C00BE66EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 463440C62851B98C00BE66EE /* Then */; };
+		463440CA2851E58A00BE66EE /* DisplayInfoPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440C92851E58A00BE66EE /* DisplayInfoPart.swift */; };
+		463440CD2851E72B00BE66EE /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440CC2851E72B00BE66EE /* NetworkProvider.swift */; };
+		463440D12851FB8D00BE66EE /* MealResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D02851FB8D00BE66EE /* MealResponseDTO.swift */; };
+		463440D42852006600BE66EE /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D32852006600BE66EE /* Meal.swift */; };
+		463440D6285200E400BE66EE /* TodayWhatError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D5285200E400BE66EE /* TodayWhatError.swift */; };
+		463440D9285207F600BE66EE /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440D8285207F600BE66EE /* Consts.swift */; };
+		463440F52852268600BE66EE /* UserDefaultsLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440F42852268600BE66EE /* UserDefaultsLocal.swift */; };
+		463440F72852274700BE66EE /* SchoolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440F62852274700BE66EE /* SchoolType.swift */; };
+		463440FA2852282E00BE66EE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 463440F92852282E00BE66EE /* SwiftUI.framework */; };
+		463440FD28522ADC00BE66EE /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440FC28522ADC00BE66EE /* Date+Ext.swift */; };
+		463441002852356E00BE66EE /* NSMutableAttributedString+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463440FF2852356E00BE66EE /* NSMutableAttributedString+Ext.swift */; };
+		4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4634410228524ED400BE66EE /* SwiftyJSON */; };
+		46344105285482F200BE66EE /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46344104285482F200BE66EE /* School.swift */; };
+		46344107285483E000BE66EE /* SchoolListResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46344106285483E000BE66EE /* SchoolListResponseDTO.swift */; };
+		4634410D28557F7700BE66EE /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4634410C28557F7700BE66EE /* LaunchAtLogin */; };
+		463441102855987600BE66EE /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4634410F2855987600BE66EE /* NumberTextField.swift */; };
+		463441122855B93700BE66EE /* SchoolKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441112855B93700BE66EE /* SchoolKind.swift */; };
+		463441142855CDC100BE66EE /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441132855CDC100BE66EE /* TimeTable.swift */; };
+		463441162855CE7D00BE66EE /* TimeTableResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */; };
+		463441192857643B00BE66EE /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441182857643B00BE66EE /* MealType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		463440B32851A9B600BE66EE /* TodayWhat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayWhat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		463440B62851A9B600BE66EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		463440B82851A9B600BE66EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		463440BA2851A9B800BE66EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		463440BD2851A9B800BE66EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		463440BF2851A9B800BE66EE /* TodayWhat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWhat.entitlements; sourceTree = "<group>"; };
+		463440C92851E58A00BE66EE /* DisplayInfoPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayInfoPart.swift; sourceTree = "<group>"; };
+		463440CC2851E72B00BE66EE /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		463440D02851FB8D00BE66EE /* MealResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealResponseDTO.swift; sourceTree = "<group>"; };
+		463440D32852006600BE66EE /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		463440D5285200E400BE66EE /* TodayWhatError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayWhatError.swift; sourceTree = "<group>"; };
+		463440D8285207F600BE66EE /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		463440F42852268600BE66EE /* UserDefaultsLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocal.swift; sourceTree = "<group>"; };
+		463440F62852274700BE66EE /* SchoolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolType.swift; sourceTree = "<group>"; };
+		463440F92852282E00BE66EE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		463440FC28522ADC00BE66EE /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		463440FF2852356E00BE66EE /* NSMutableAttributedString+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Ext.swift"; sourceTree = "<group>"; };
+		46344104285482F200BE66EE /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		46344106285483E000BE66EE /* SchoolListResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListResponseDTO.swift; sourceTree = "<group>"; };
+		4634410F2855987600BE66EE /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
+		463441112855B93700BE66EE /* SchoolKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolKind.swift; sourceTree = "<group>"; };
+		463441132855CDC100BE66EE /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
+		463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableResponseDTO.swift; sourceTree = "<group>"; };
+		463441172856325200BE66EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		463441182857643B00BE66EE /* MealType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +65,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463440FA2852282E00BE66EE /* SwiftUI.framework in Frameworks */,
+				4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */,
+				4634410D28557F7700BE66EE /* LaunchAtLogin in Frameworks */,
+				463440C72851B98C00BE66EE /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +80,7 @@
 			children = (
 				463440B52851A9B600BE66EE /* TodayWhat */,
 				463440B42851A9B600BE66EE /* Products */,
+				463440F82852282E00BE66EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +95,134 @@
 		463440B52851A9B600BE66EE /* TodayWhat */ = {
 			isa = PBXGroup;
 			children = (
+				463441172856325200BE66EE /* Info.plist */,
+				4634410E2855986B00BE66EE /* View */,
+				463440E7285216EF00BE66EE /* Utils */,
+				463440E4285216D700BE66EE /* DataSource */,
+				463440D7285207B800BE66EE /* Consts */,
+				463440D22852006300BE66EE /* Entity */,
+				463440CF2851FB7F00BE66EE /* DataMapping */,
+				463440CB2851E6D200BE66EE /* Network */,
+				463440C82851E54900BE66EE /* Enums */,
 				463440B62851A9B600BE66EE /* AppDelegate.swift */,
-				463440B82851A9B600BE66EE /* ViewController.swift */,
 				463440BA2851A9B800BE66EE /* Assets.xcassets */,
 				463440BC2851A9B800BE66EE /* Main.storyboard */,
 				463440BF2851A9B800BE66EE /* TodayWhat.entitlements */,
 			);
 			path = TodayWhat;
+			sourceTree = "<group>";
+		};
+		463440C82851E54900BE66EE /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				463440F32852218100BE66EE /* Error */,
+				463440C92851E58A00BE66EE /* DisplayInfoPart.swift */,
+				463440F62852274700BE66EE /* SchoolType.swift */,
+				463441112855B93700BE66EE /* SchoolKind.swift */,
+				463441182857643B00BE66EE /* MealType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		463440CB2851E6D200BE66EE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				463440CC2851E72B00BE66EE /* NetworkProvider.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		463440CF2851FB7F00BE66EE /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				463440D02851FB8D00BE66EE /* MealResponseDTO.swift */,
+				46344106285483E000BE66EE /* SchoolListResponseDTO.swift */,
+				463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		463440D22852006300BE66EE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				463440D32852006600BE66EE /* Meal.swift */,
+				46344104285482F200BE66EE /* School.swift */,
+				463441132855CDC100BE66EE /* TimeTable.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		463440D7285207B800BE66EE /* Consts */ = {
+			isa = PBXGroup;
+			children = (
+				463440D8285207F600BE66EE /* Consts.swift */,
+			);
+			path = Consts;
+			sourceTree = "<group>";
+		};
+		463440E4285216D700BE66EE /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				463440F42852268600BE66EE /* UserDefaultsLocal.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		463440E7285216EF00BE66EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				463440E8285216F200BE66EE /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		463440E8285216F200BE66EE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				463440FE2852355E00BE66EE /* UIkit */,
+				463440FB28522AD000BE66EE /* Foundation */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		463440F32852218100BE66EE /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				463440D5285200E400BE66EE /* TodayWhatError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		463440F82852282E00BE66EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				463440F92852282E00BE66EE /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		463440FB28522AD000BE66EE /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				463440FC28522ADC00BE66EE /* Date+Ext.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		463440FE2852355E00BE66EE /* UIkit */ = {
+			isa = PBXGroup;
+			children = (
+				463440FF2852356E00BE66EE /* NSMutableAttributedString+Ext.swift */,
+			);
+			path = UIkit;
+			sourceTree = "<group>";
+		};
+		4634410E2855986B00BE66EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4634410F2855987600BE66EE /* NumberTextField.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +241,11 @@
 			dependencies = (
 			);
 			name = TodayWhat;
+			packageProductDependencies = (
+				463440C62851B98C00BE66EE /* Then */,
+				4634410228524ED400BE66EE /* SwiftyJSON */,
+				4634410C28557F7700BE66EE /* LaunchAtLogin */,
+			);
 			productName = TodayWhat;
 			productReference = 463440B32851A9B600BE66EE /* TodayWhat.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +274,11 @@
 				Base,
 			);
 			mainGroup = 463440AA2851A9B600BE66EE;
+			packageReferences = (
+				463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */,
+				4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
 			productRefGroup = 463440B42851A9B600BE66EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,8 +305,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463440B92851A9B600BE66EE /* ViewController.swift in Sources */,
+				46344105285482F200BE66EE /* School.swift in Sources */,
+				463441142855CDC100BE66EE /* TimeTable.swift in Sources */,
+				463440D42852006600BE66EE /* Meal.swift in Sources */,
+				463441102855987600BE66EE /* NumberTextField.swift in Sources */,
+				463441162855CE7D00BE66EE /* TimeTableResponseDTO.swift in Sources */,
+				463440F72852274700BE66EE /* SchoolType.swift in Sources */,
+				463441002852356E00BE66EE /* NSMutableAttributedString+Ext.swift in Sources */,
 				463440B72851A9B600BE66EE /* AppDelegate.swift in Sources */,
+				463440F52852268600BE66EE /* UserDefaultsLocal.swift in Sources */,
+				463440D12851FB8D00BE66EE /* MealResponseDTO.swift in Sources */,
+				463441192857643B00BE66EE /* MealType.swift in Sources */,
+				46344107285483E000BE66EE /* SchoolListResponseDTO.swift in Sources */,
+				463441122855B93700BE66EE /* SchoolKind.swift in Sources */,
+				463440CA2851E58A00BE66EE /* DisplayInfoPart.swift in Sources */,
+				463440FD28522ADC00BE66EE /* Date+Ext.swift in Sources */,
+				463440D9285207F600BE66EE /* Consts.swift in Sources */,
+				463440D6285200E400BE66EE /* TodayWhatError.swift in Sources */,
+				463440CD2851E72B00BE66EE /* NetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +465,7 @@
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayWhat/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -282,6 +473,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +494,7 @@
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TodayWhat/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -309,6 +502,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,6 +533,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		463440C62851B98C00BE66EE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 463440C52851B98C00BE66EE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		4634410228524ED400BE66EE /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		4634410C28557F7700BE66EE /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 463440AB2851A9B600BE66EE /* Project object */;
 }
