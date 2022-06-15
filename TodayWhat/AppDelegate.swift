@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         $0.action = #selector(timeTableMenuAction)
     }
     private let reportMenuItem = NSMenuItem().then {
-        $0.title = "📧 문의"
+        $0.title = "💡 이슈"
         $0.tag = 6
         $0.action = #selector(reportMenuAction)
     }
@@ -253,7 +253,7 @@ private extension AppDelegate {
             .catch({ _ in
                 return Just((Meal(breakfast: [], lunch: [], dinner: []), [TimeTable]())).eraseToAnyPublisher()
             })
-            .sink { _ in } receiveValue: { [weak self] (meal, timetable) in
+            .sink { [weak self] (meal, timetable) in
                 self?.meal = meal
                 self?.timeTable = timetable
                 self?.updateUI()
