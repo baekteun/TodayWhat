@@ -262,7 +262,7 @@ private extension AppDelegate {
 
     }
     func displayTimeTable() {
-        timeTable.reversed().forEach { timetable in
+        Array(Set(timeTable)).sorted(by: { $0.perio > $1.perio } ).forEach { timetable in
             let str = NSMutableAttributedString(string: "\(timetable.perio)교시\n\(timetable.content)")
             str.setAttributes([
                 .font: NSFont.systemFont(ofSize: 14, weight: .medium),
