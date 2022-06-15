@@ -129,14 +129,7 @@ private extension AppDelegate {
         commonOptionMenuAction()
     }
     @objc func reportMenuAction() {
-        let service = NSSharingService(named: NSSharingService.Name.composeEmail)!
-        service.recipients = ["baegteun@gmail.com"]
-        service.subject = "'오늘 뭐임' 문의"
-        
-        service.perform(withItems: ["""
-OS Version: \(ProcessInfo.processInfo.operatingSystemVersionString)
-내용:
-"""])
+        NSWorkspace.shared.open(URL(string: "https://github.com/baekteun/TodayWhat/issues")!)
     }
     @objc func setSchoolMenuAction() {
         let alert = NSAlert()
