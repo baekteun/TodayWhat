@@ -320,7 +320,7 @@ private extension AppDelegate {
             str.setAttributes([
                 .font: NSFont.systemFont(ofSize: 12, weight: .medium),
                 .foregroundColor: NSColor.textColor
-            ], range: NSRange(res) ?? .init())
+            ], range: .init(location: 0, length: str.length))
             str.setFontForText(textToFind: split.first ?? "", withFont: .systemFont(ofSize: 16, weight: .medium))
             str.setColorForText(textToFind: split.first ?? "", withColor: .headerTextColor)
             let menuItem = NSMenuItem().then {
