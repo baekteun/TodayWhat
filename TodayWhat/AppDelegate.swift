@@ -129,7 +129,7 @@ private extension AppDelegate {
         commonOptionMenuAction()
     }
     @objc func reportMenuAction() {
-        NSWorkspace.shared.open(URL(string: "https://github.com/baekteun/TodayWhat/issues")!)
+        NSWorkspace.shared.open(URL(string: "https://github.com/baekteun/TodayWhat/issues") ?? .init(string: "https://www.google.com")!)
     }
     @objc func setSchoolMenuAction() {
         let alert = NSAlert()
@@ -376,7 +376,6 @@ private extension AppDelegate {
                 self?.refresh()
             }
             .store(in: &bag)
-
     }
     func changeClassGrade(class: Int, grade: Int) {
         UserDefaultsLocal.shared.class = `class`

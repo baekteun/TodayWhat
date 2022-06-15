@@ -29,7 +29,10 @@
 		463441142855CDC100BE66EE /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441132855CDC100BE66EE /* TimeTable.swift */; };
 		463441162855CE7D00BE66EE /* TimeTableResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */; };
 		463441192857643B00BE66EE /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441182857643B00BE66EE /* MealType.swift */; };
-		463441222858562700BE66EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 463441212858562700BE66EE /* Then */; };
+		46F12A5A2859CA5A006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A592859CA5A006F36F4 /* Then */; };
+		46F12A5D2859CAC5006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A5C2859CAC5006F36F4 /* Then */; };
+		46F12A602859CB2D006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A5F2859CB2D006F36F4 /* Then */; };
+		46F12A632859CF3E006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A622859CF3E006F36F4 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,9 +67,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F12A602859CB2D006F36F4 /* Then in Frameworks */,
+				46F12A632859CF3E006F36F4 /* Then in Frameworks */,
 				4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */,
-				463441222858562700BE66EE /* Then in Frameworks */,
+				46F12A5A2859CA5A006F36F4 /* Then in Frameworks */,
 				4634410D28557F7700BE66EE /* LaunchAtLogin in Frameworks */,
+				46F12A5D2859CAC5006F36F4 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +248,10 @@
 			packageProductDependencies = (
 				4634410228524ED400BE66EE /* SwiftyJSON */,
 				4634410C28557F7700BE66EE /* LaunchAtLogin */,
-				463441212858562700BE66EE /* Then */,
+				46F12A592859CA5A006F36F4 /* Then */,
+				46F12A5C2859CAC5006F36F4 /* Then */,
+				46F12A5F2859CB2D006F36F4 /* Then */,
+				46F12A622859CF3E006F36F4 /* Then */,
 			);
 			productName = TodayWhat;
 			productReference = 463440B32851A9B600BE66EE /* TodayWhat.app */;
@@ -275,7 +284,7 @@
 			packageReferences = (
 				4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
-				463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */,
+				46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 463440B42851A9B600BE66EE /* Products */;
 			projectDirPath = "";
@@ -459,11 +468,12 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWhat/TodayWhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayWhat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오늘 뭐임";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -474,6 +484,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.2;
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -489,11 +500,12 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWhat/TodayWhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodayWhat/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "오늘 뭐임";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -504,6 +516,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.2;
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -551,7 +564,7 @@
 				minimumVersion = 4.2.0;
 			};
 		};
-		463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */ = {
+		46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
 			requirement = {
@@ -572,9 +585,24 @@
 			package = 4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
-		463441212858562700BE66EE /* Then */ = {
+		46F12A592859CA5A006F36F4 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 463441202858562700BE66EE /* XCRemoteSwiftPackageReference "Then" */;
+			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		46F12A5C2859CAC5006F36F4 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		46F12A5F2859CB2D006F36F4 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		46F12A622859CF3E006F36F4 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
