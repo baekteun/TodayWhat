@@ -2,6 +2,7 @@ import Cocoa
 import Then
 import Combine
 import LaunchAtLogin
+import Network
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -11,6 +12,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let menu = NSMenu().then {
         $0.title = ""
     }
+    private let queue = DispatchQueue.global()
+    private let monitor = NWPathMonitor()
     
     private var selectedPart: DisplayInfoPart = .breakfast
     private var meal: Meal? = nil
@@ -84,6 +87,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         $0.keyEquivalent = "q"
         $0.action = #selector(quitMenuAction)
     }
+    private let networkNotSatisfiedMenuItem = NSMenuItem().then {
+        $0.title = "⚠️ 네트워크가 정상적이지 않아요!"
+        $0.toolTip = "네트워크를 확인해주세요"
+        $0.tag = Consts.networkTag
+        $0.action = #selector(networkMenuAction)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if UserDefaultsLocal.shared.grade == 0 { UserDefaultsLocal.shared.grade = 1 }
@@ -97,10 +106,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         startRefreshTimer()
+        startNetworkMonitoring()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         invalidateTimer()
+        stopNetworkMonitoring()
         statusItem = nil
         bag.removeAll()
     }
@@ -225,6 +236,9 @@ private extension AppDelegate {
     @objc func quitMenuAction() {
         NSApplication.shared.terminate(self)
     }
+    @objc func networkMenuAction() {
+        menu.removeItem(networkNotSatisfiedMenuItem)
+    }
 }
 
 // MARK: - Method
@@ -300,12 +314,12 @@ private extension AppDelegate {
         menu.insertItem(.separator(), at: .zero)
         arr.reversed().forEach { meal in
             let firstInteger = meal.first { str in
-                Int(String(str)) != nil || String(str) == "*" || String(str) == "("
-            }.map { String($0) }
-            var split = meal.split(separator: Character(firstInteger ?? " "), maxSplits: 1, omittingEmptySubsequences: true).map { String($0) }
+                str == "(" || (Int(String(str)) != nil && str != "/")
+            }.map { String($0) } ?? " "
+            var split = meal.split(separator: Character(firstInteger), maxSplits: 1).map { String($0) }
             if split.count == 2 && firstInteger != "*" {
                 var prev = split[1].map { String($0) }
-                prev.insert(firstInteger ?? "", at: .zero)
+                prev.insert(firstInteger, at: .zero)
                 split[1] = prev.joined(separator: "")
             }
             let res = split.joined(separator: "\n")
@@ -410,5 +424,28 @@ private extension AppDelegate {
     }
     func invalidateTimer() {
         refreshTimer?.invalidate()
+    }
+}
+
+// MARK: - Network Monitoring
+private extension AppDelegate {
+    func startNetworkMonitoring() {
+        monitor.start(queue: queue)
+        monitor.pathUpdateHandler = { [weak self] path in
+            guard let self = self else { return }
+            switch path.status {
+            case .satisfied:
+                guard self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
+                self.menu.removeItem(self.networkNotSatisfiedMenuItem)
+            case .unsatisfied, .requiresConnection:
+                guard !self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
+                self.menu.addItem(self.networkNotSatisfiedMenuItem)
+            @unknown default:
+                break
+            }
+        }
+    }
+    func stopNetworkMonitoring() {
+        monitor.cancel()
     }
 }
