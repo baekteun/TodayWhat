@@ -29,10 +29,7 @@
 		463441142855CDC100BE66EE /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441132855CDC100BE66EE /* TimeTable.swift */; };
 		463441162855CE7D00BE66EE /* TimeTableResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441152855CE7D00BE66EE /* TimeTableResponseDTO.swift */; };
 		463441192857643B00BE66EE /* MealType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463441182857643B00BE66EE /* MealType.swift */; };
-		46F12A5A2859CA5A006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A592859CA5A006F36F4 /* Then */; };
-		46F12A5D2859CAC5006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A5C2859CAC5006F36F4 /* Then */; };
-		46F12A602859CB2D006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A5F2859CB2D006F36F4 /* Then */; };
-		46F12A632859CF3E006F36F4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 46F12A622859CF3E006F36F4 /* Then */; };
+		466A989C287FF2D8002475D3 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 466A989B287FF2D8002475D3 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,12 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46F12A602859CB2D006F36F4 /* Then in Frameworks */,
-				46F12A632859CF3E006F36F4 /* Then in Frameworks */,
 				4634410328524ED400BE66EE /* SwiftyJSON in Frameworks */,
-				46F12A5A2859CA5A006F36F4 /* Then in Frameworks */,
+				466A989C287FF2D8002475D3 /* Then in Frameworks */,
 				4634410D28557F7700BE66EE /* LaunchAtLogin in Frameworks */,
-				46F12A5D2859CAC5006F36F4 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,10 +242,7 @@
 			packageProductDependencies = (
 				4634410228524ED400BE66EE /* SwiftyJSON */,
 				4634410C28557F7700BE66EE /* LaunchAtLogin */,
-				46F12A592859CA5A006F36F4 /* Then */,
-				46F12A5C2859CAC5006F36F4 /* Then */,
-				46F12A5F2859CB2D006F36F4 /* Then */,
-				46F12A622859CF3E006F36F4 /* Then */,
+				466A989B287FF2D8002475D3 /* Then */,
 			);
 			productName = TodayWhat;
 			productReference = 463440B32851A9B600BE66EE /* TodayWhat.app */;
@@ -284,7 +275,7 @@
 			packageReferences = (
 				4634410128524ED300BE66EE /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
-				46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */,
+				466A989A287FF2D8002475D3 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 463440B42851A9B600BE66EE /* Products */;
 			projectDirPath = "";
@@ -468,7 +459,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWhat/TodayWhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -483,7 +474,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4.0;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,7 +491,7 @@
 				CODE_SIGN_ENTITLEMENTS = TodayWhat/TodayWhat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 235C2RVZ7L;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -515,7 +506,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4.0;
 				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baegteun.TodayWhat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -564,12 +555,12 @@
 				minimumVersion = 4.2.0;
 			};
 		};
-		46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */ = {
+		466A989A287FF2D8002475D3 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -585,24 +576,9 @@
 			package = 4634410B28557F7700BE66EE /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
-		46F12A592859CA5A006F36F4 /* Then */ = {
+		466A989B287FF2D8002475D3 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		46F12A5C2859CAC5006F36F4 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		46F12A5F2859CB2D006F36F4 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
-		};
-		46F12A622859CF3E006F36F4 /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 46F12A582859CA5A006F36F4 /* XCRemoteSwiftPackageReference "Then" */;
+			package = 466A989A287FF2D8002475D3 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -3,9 +3,9 @@ import Combine
 import SwiftyJSON
 
 protocol NetworkProviderProtocol {
-    func fetchMealList() -> AnyPublisher<Meal, TodayWhatError>
+    func fetchMealList() -> AnyPublisher<Meal, Never>
     func searchSchool(name: String) -> AnyPublisher<School, TodayWhatError>
-    func fetchTimeTable() -> AnyPublisher<[TimeTable], TodayWhatError>
+    func fetchTimeTable() -> AnyPublisher<[TimeTable], Never>
 }
 
 public struct NetworkProvider: NetworkProviderProtocol {
@@ -20,14 +20,14 @@ public struct NetworkProvider: NetworkProviderProtocol {
         self.session = session
     }
     
-    func fetchMealList() -> AnyPublisher<Meal, TodayWhatError> {
+    func fetchMealList() -> AnyPublisher<Meal, Never> {
         guard
             let orgCode = UserDefaultsLocal.shared.orgCode,
             let code = UserDefaultsLocal.shared.code
         else {
-            return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher()
+            return Just(Meal(breakfast: [], lunch: [], dinner: [])).eraseToAnyPublisher()
         }
-        guard var urlComponents = URLComponents(string: neisBaseURL + "mealServiceDietInfo") else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
+        guard var urlComponents = URLComponents(string: neisBaseURL + "mealServiceDietInfo") else { return Just(Meal(breakfast: [], lunch: [], dinner: [])).eraseToAnyPublisher() }
         let today = Date()
         let month = today.month < 10 ? "0\(today.month)" : "\(today.month)"
         let day = today.day < 10 ? "0\(today.day)" : "\(today.day)"
@@ -43,7 +43,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
             .init(name: "MLSV_FROM_YMD", value: date),
             .init(name: "MLSV_TO_YMD", value: date)
         ])
-        guard let url = urlComponents.url else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
+        guard let url = urlComponents.url else { return Just(Meal(breakfast: [], lunch: [], dinner: [])).eraseToAnyPublisher() }
         return session.dataTaskPublisher(for: url)
             .map(\.data)
             .tryMap { data in
@@ -59,6 +59,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
                 throw TodayWhatError.fetchFailed
             }
             .decode(type: [mealInfoResponseDTO].self, decoder: decoder)
+            .catch { _ in Just([]) }
             .map({ dto in
                 let dto = Array(dto.reversed())
                 let breakfast = dto.first(where: { $0.mealType == .breakfast } )?.info.replacingOccurrences(of: " ", with: "").components(separatedBy: "<br/>") ?? []
@@ -66,7 +67,6 @@ public struct NetworkProvider: NetworkProviderProtocol {
                 let dinner = dto.first(where: { $0.mealType == .dinner } )?.info.replacingOccurrences(of: " ", with: "").components(separatedBy: "<br/>") ?? []
                 return Meal(breakfast: breakfast, lunch: lunch, dinner: dinner)
             })
-            .mapError { _ in TodayWhatError.fetchFailed }
             .eraseToAnyPublisher()
     }
     
@@ -107,19 +107,19 @@ public struct NetworkProvider: NetworkProviderProtocol {
             .eraseToAnyPublisher()
     }
     
-    func fetchTimeTable() -> AnyPublisher<[TimeTable], TodayWhatError> {
+    func fetchTimeTable() -> AnyPublisher<[TimeTable], Never> {
         guard
             let type = UserDefaultsLocal.shared.schoolType,
             let code = UserDefaultsLocal.shared.code,
             let orgCode = UserDefaultsLocal.shared.orgCode
         else {
-            return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher()
+            return Just([]).eraseToAnyPublisher()
         }
         let today = Date()          
         let month = today.month < 10 ? "0\(today.month)" : "\(today.month)"
         let day = today.day < 10 ? "0\(today.day)" : "\(today.day)"
         let date = "\(today.year)\(month)\(day)"
-        guard var urlComponents = URLComponents(string: neisBaseURL + type.toSubURL()) else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
+        guard var urlComponents = URLComponents(string: neisBaseURL + type.toSubURL()) else { return Just([]).eraseToAnyPublisher() }
         urlComponents.queryItems = []
         urlComponents.queryItems?.append(contentsOf: [
             .init(name: "KEY", value: ""),
@@ -134,7 +134,7 @@ public struct NetworkProvider: NetworkProviderProtocol {
             .init(name: "TI_FROM_YMD", value: date),
             .init(name: "TI_TO_YMD", value: date)
         ])
-        guard let url = urlComponents.url else { return Fail(error: TodayWhatError.fetchFailed).eraseToAnyPublisher() }
+        guard let url = urlComponents.url else { return Just([]).eraseToAnyPublisher() }
         return session.dataTaskPublisher(for: url)
             .map(\.data)
             .tryMap { data in
@@ -150,8 +150,8 @@ public struct NetworkProvider: NetworkProviderProtocol {
                 throw TodayWhatError.fetchFailed
             }
             .decode(type: [TimeTableResponseDTO].self, decoder: decoder)
+            .catch { _ in Just([]) }
             .map { $0.map { $0.toDomain() } }
-            .mapError { _ in TodayWhatError.fetchFailed }
             .eraseToAnyPublisher()
     }
 }
