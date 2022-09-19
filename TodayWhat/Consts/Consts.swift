@@ -9,4 +9,5 @@ enum Consts {
     static let schoolDept = "SCHOOL_DEPT"
     static let grade = "GRADE"
     static let `class` = "CLASS"
+    static let skipWeekend = "SKIP_WEEKEND"
 }

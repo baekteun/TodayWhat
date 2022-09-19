@@ -28,7 +28,11 @@ public struct NetworkProvider: NetworkProviderProtocol {
             return Just(Meal(breakfast: [], lunch: [], dinner: [])).eraseToAnyPublisher()
         }
         guard var urlComponents = URLComponents(string: neisBaseURL + "mealServiceDietInfo") else { return Just(Meal(breakfast: [], lunch: [], dinner: [])).eraseToAnyPublisher() }
-        let today = Date()
+        var today = Date()
+        if UserDefaultsLocal.shared.skipWeekend {
+            skipWeekend(date: &today)
+        }
+        print(today)
         let month = today.month < 10 ? "0\(today.month)" : "\(today.month)"
         let day = today.day < 10 ? "0\(today.day)" : "\(today.day)"
         let date = "\(today.year)\(month)\(day)"
@@ -115,7 +119,10 @@ public struct NetworkProvider: NetworkProviderProtocol {
         else {
             return Just([]).eraseToAnyPublisher()
         }
-        let today = Date()          
+        var today = Date()
+        if UserDefaultsLocal.shared.skipWeekend {
+            skipWeekend(date: &today)
+        }
         let month = today.month < 10 ? "0\(today.month)" : "\(today.month)"
         let day = today.day < 10 ? "0\(today.day)" : "\(today.day)"
         let date = "\(today.year)\(month)\(day)"
@@ -153,5 +160,15 @@ public struct NetworkProvider: NetworkProviderProtocol {
             .catch { _ in Just([]) }
             .map { $0.map { $0.toDomain() } }
             .eraseToAnyPublisher()
+    }
+}
+
+private extension NetworkProvider {
+    func skipWeekend(date: inout Date) {
+        if date.weekday == "Sat" {
+            date = date.addingTimeInterval(86400 * 2)
+        } else if date.weekday == "Sun" {
+            date = date.addingTimeInterval(86400)
+        }
     }
 }

@@ -37,4 +37,8 @@ final class UserDefaultsLocal {
         get { preferences.string(forKey: Consts.schoolDept) }
         set { preferences.setValue(newValue, forKey: Consts.schoolDept) }
     }
+    var skipWeekend: Bool {
+        get { preferences.bool(forKey: Consts.skipWeekend) }
+        set { preferences.setValue(newValue, forKey: Consts.skipWeekend) }
+    }
 }

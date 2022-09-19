@@ -75,6 +75,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         $0.keyEquivalent = "f"
         $0.action = #selector(setClassGradeMenuAction)
     }
+    private let skipWeekendMenuItem = NSMenuItem().then {
+        $0.title = UserDefaultsLocal.shared.skipWeekend ? "🔀 주말 스킵하지 않기" : "🔀 주말 스킵하기"
+        $0.tag = 12
+        $0.keyEquivalent = "g"
+        $0.action = #selector(skipWeekendMenuAction)
+    }
     private let settingMenuItem = NSMenuItem().then {
         $0.title = "⚙️ 설정"
         $0.tag = 10
@@ -216,6 +222,11 @@ private extension AppDelegate {
             return
         }
     }
+    @objc func skipWeekendMenuAction() {
+        UserDefaultsLocal.shared.skipWeekend = !UserDefaultsLocal.shared.skipWeekend
+        skipWeekendMenuItem.title = UserDefaultsLocal.shared.skipWeekend ? "🔀 주말 스킵하지 않기" : "🔀 주말 스킵하기"
+        refresh()
+    }
     @objc func refreshMenuAction() {
         refresh()
     }
@@ -231,21 +242,19 @@ private extension AppDelegate {
         }
     }
     @objc func launchAtLoginToggleAction() {
-        LaunchAtLogin.isEnabled.toggle()
+        LaunchAtLogin.isEnabled = !LaunchAtLogin.isEnabled
     }
     @objc func quitMenuAction() {
         NSApplication.shared.terminate(self)
     }
-    @objc func networkMenuAction() {
-        menu.removeItem(networkNotSatisfiedMenuItem)
-    }
+    @objc func networkMenuAction() {}
 }
 
 // MARK: - Method
 private extension AppDelegate {
     func initialUI() {
         [
-            mealHeaderMenuItem, breakfastMenuItem, lunchMenuItem, dinnerMenuItem, timetableHeaderMenuItem, timeTableMenuItem, .separator(), reportMenuItem, .separator(), schoolSetMenuItem, classGradeSetMenuItem, .separator(), refreshMenuItem, settingMenuItem, exitMenuItem
+            mealHeaderMenuItem, breakfastMenuItem, lunchMenuItem, dinnerMenuItem, timetableHeaderMenuItem, timeTableMenuItem, .separator(), reportMenuItem, .separator(), schoolSetMenuItem, classGradeSetMenuItem, skipWeekendMenuItem, .separator(), refreshMenuItem, settingMenuItem, exitMenuItem, networkNotSatisfiedMenuItem
         ].forEach(menu.addItem(_:))
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem?.button?.image = NSImage(named: "BAG")
@@ -264,9 +273,6 @@ private extension AppDelegate {
     }
     func fetchItems() {
         provider.fetchMealList().zip(provider.fetchTimeTable())
-            .catch({ _ in
-                return Just((Meal(breakfast: [], lunch: [], dinner: []), [TimeTable]())).eraseToAnyPublisher()
-            })
             .sink { [weak self] (meal, timetable) in
                 self?.meal = meal
                 self?.timeTable = timetable
@@ -435,11 +441,9 @@ private extension AppDelegate {
             guard let self = self else { return }
             switch path.status {
             case .satisfied:
-                guard self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
-                self.menu.removeItem(self.networkNotSatisfiedMenuItem)
+                self.networkNotSatisfiedMenuItem.title = "✅ 네트워크가 정상적입니다!"
             case .unsatisfied, .requiresConnection:
-                guard !self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
-                self.menu.addItem(self.networkNotSatisfiedMenuItem)
+                self.networkNotSatisfiedMenuItem.title = "⚠️ 네트워크가 정상적이지 않아요!"
             @unknown default:
                 break
             }

@@ -14,3 +14,11 @@ extension Date {
         return currentCal.component(.day, from: self)
     }
 }
+
+extension Date {
+    var weekday: String {
+        let target = DateComponents(calendar: currentCal, year: year, month: month, day: day).date ?? .init()
+        let day = Calendar.current.component(.weekday, from: target) - 1
+        return Calendar.current.shortWeekdaySymbols[day]
+    }
+}
