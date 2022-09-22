@@ -99,6 +99,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         $0.tag = Consts.networkTag
         $0.action = #selector(networkMenuAction)
     }
+    private let stealingMenuMenuItem = NSMenuItem().then {
+        $0.title = "🥷 메뉴판을 훔치는 중이에요..."
+        $0.tag = 23
+        $0.action = #selector(stealMenuAction)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if UserDefaultsLocal.shared.grade == 0 { UserDefaultsLocal.shared.grade = 1 }
@@ -248,6 +253,7 @@ private extension AppDelegate {
         NSApplication.shared.terminate(self)
     }
     @objc func networkMenuAction() {}
+    @objc func stealMenuAction() {}
 }
 
 // MARK: - Method
@@ -272,11 +278,17 @@ private extension AppDelegate {
         displaySchoolInfo()
     }
     func fetchItems() {
+        if !menu.items.contains(stealingMenuMenuItem) {
+            menu.addItem(stealingMenuMenuItem)
+        }
         provider.fetchMealList().zip(provider.fetchTimeTable())
             .sink { [weak self] (meal, timetable) in
-                self?.meal = meal
-                self?.timeTable = timetable
-                self?.updateUI()
+                guard let self = self else { return }
+                self.meal = meal
+                self.timeTable = timetable
+                self.updateUI()
+                guard self.menu.items.contains(self.stealingMenuMenuItem) else { return }
+                self.menu.removeItem(self.stealingMenuMenuItem)
             }
             .store(in: &bag)
 
@@ -441,9 +453,11 @@ private extension AppDelegate {
             guard let self = self else { return }
             switch path.status {
             case .satisfied:
-                self.networkNotSatisfiedMenuItem.title = "✅ 네트워크가 정상적입니다!"
+                guard self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
+                self.menu.removeItem(self.networkNotSatisfiedMenuItem)
             case .unsatisfied, .requiresConnection:
-                self.networkNotSatisfiedMenuItem.title = "⚠️ 네트워크가 정상적이지 않아요!"
+                guard !self.menu.items.contains(self.networkNotSatisfiedMenuItem) else { return }
+                self.menu.addItem(self.networkNotSatisfiedMenuItem)
             @unknown default:
                 break
             }
